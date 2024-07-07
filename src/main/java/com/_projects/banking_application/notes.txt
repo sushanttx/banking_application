@@ -1,0 +1,21 @@
+1. DTO to JPA (Data Transfer Object to Java Persistence API)
+    a. Receive DTO from Client:
+        A client (e.g., a web frontend) sends a request with a JSON payload representing an AccountDTO.
+    b. Controller Layer:
+        The AccountController receives this DTO and passes it to the service layer.
+    c. Service Layer:
+        The AccountService processes the DTO. It often involves converting the DTO to an entity object.
+        The AccountMapper class is used to map AccountDTO to Account.
+    d. Repository Layer:
+        The AccountService calls the AccountRepository to save the entity to the database.
+
+2. JPA to DTO (Java Persistence API to Data Transfer Object)
+    a. Fetch Entity from Database:
+        The AccountRepository fetches an Account entity from the database.
+    b. Service Layer:
+        The AccountService processes the entity. It often involves converting the entity to a DTO.
+        The AccountMapper class is used to map Account to AccountDTO.
+    c. Controller Layer:
+        The AccountService returns the DTO to the AccountController.
+    d. Send DTO to Client:
+        The AccountController sends the DTO back to the client as a JSON response.
