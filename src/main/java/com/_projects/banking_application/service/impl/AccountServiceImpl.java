@@ -1,7 +1,9 @@
 package com._projects.banking_application.service.impl;
 
 import com._projects.banking_application.dto.AccountDTO;
+
 import com._projects.banking_application.dto.TransactionDTO;
+
 import com._projects.banking_application.dto.TransferFundDTO;
 import com._projects.banking_application.entity.Account;
 import com._projects.banking_application.entity.Transactions;
@@ -25,8 +27,12 @@ public class AccountServiceImpl implements AccountService {
     private TransactionRepository transactionRepository;
     private static final String TRANSACTION_TYPE_DEPOSIT = "Deposit";
     private static final String TRANSACTION_TYPE_WITHDRAW = "Withdraw";
+
     private static final String TRANSACTION_TYPE_TRANSFER_SENT = "Transfer_Sent";
     private static final String TRANSACTION_TYPE_TRANSFER_RECEIVED = "Transfer_Received";
+
+    private static final String TRANSACTION_TYPE_TRANSFER = "Transfer";
+
 
     public AccountServiceImpl(AccountRepository accountRepository, TransactionRepository transactionRepository) {
         this.accountRepository = accountRepository;
@@ -124,6 +130,7 @@ public class AccountServiceImpl implements AccountService {
         accountRepository.save(senderAccount);
         accountRepository.save(receiverAccount);
 
+
         Transactions transactionSent = new Transactions();
         transactionSent.setAccountId(senderAccount.getAccountID());
         transactionSent.setAmount(transferFundDTO.amount());
@@ -156,6 +163,7 @@ public class AccountServiceImpl implements AccountService {
                 transaction.getTimestamp()
         );
         return transactionDTO;
+
     }
 
 }

@@ -1,7 +1,9 @@
 package com._projects.banking_application.controller;
 
 import com._projects.banking_application.dto.AccountDTO;
+
 import com._projects.banking_application.dto.TransactionDTO;
+
 import com._projects.banking_application.dto.TransferFundDTO;
 import com._projects.banking_application.service.AccountService;
 import com._projects.banking_application.service.impl.AccountServiceImpl;
@@ -73,5 +75,6 @@ public class AccountController {
     public ResponseEntity<List<TransactionDTO>> getAllTransactionsById(@PathVariable Long id){
         return ResponseEntity.ok(accountService.getAllTransactionsById(id));
     }
+
 
 }
