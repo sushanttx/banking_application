@@ -1,6 +1,9 @@
 package com._projects.banking_application.controller;
 
 import com._projects.banking_application.dto.AccountDTO;
+
+import com._projects.banking_application.dto.TransactionDTO;
+
 import com._projects.banking_application.dto.TransferFundDTO;
 import com._projects.banking_application.service.AccountService;
 import com._projects.banking_application.service.impl.AccountServiceImpl;
@@ -66,5 +69,12 @@ public class AccountController {
         accountService.transferFund(transferFundDTO);
         return ResponseEntity.ok("Transfer successful.");
     }
+
+//    Rest API for getting all transactions by a specific id.
+    @GetMapping("{id}/transactions")
+    public ResponseEntity<List<TransactionDTO>> getAllTransactionsById(@PathVariable Long id){
+        return ResponseEntity.ok(accountService.getAllTransactionsById(id));
+    }
+
 
 }
